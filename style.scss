@@ -1,0 +1,65 @@
+// $primary_color: #00bfff;
+// $secondary_color: #00ff7f;
+// $myfont: Helvetica, sans-serif;
+// $myFontSize: 2em;
+
+// #title {
+//     background-color: $primary_color;
+//     font-family: $myfont;
+// }
+
+// h2 {
+//     color: $secondary_color;
+//     font-family: $myfont;
+//     font-size: $myFontSize;
+// }
+
+@import url(reset.scss);
+@import url(variable.scss);
+
+nav {
+    ul{
+        // margin: 0;
+        // padding: 0;
+        list-style: none;
+    }
+    li{
+        display: inline-block;
+    }
+    a{
+        color: $primary_color;
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+    }
+}
+
+@mixin base_style{
+    color: red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: uppercase;
+}
+
+h1{
+    box-shadow: yellow;
+    box-shadow: 10px 10px 10px black;
+}
+
+h3{
+    border-bottom: orange;
+    box-shadow: 20px 20px 20px deeppink;
+}
+
+
+@function pow($base, $exponent){
+    $result:1;
+    @for $_ from 1 to $exponent {
+        $result:$result*base;
+    }
+    @return $result;
+}
+
+@function invert($color, $amount:100%){
+    $inverse:change-color($color, $hue:hue($color) + 180);
+    @return mix($inverse, $color, $amount);
+}
